@@ -19,7 +19,7 @@ export class TodoDetailComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private store: Store,
-    private service: TodosService) {  
+    private service: TodosService) {
   }
 
   ngOnInit() {
@@ -38,7 +38,6 @@ export class TodoDetailComponent implements OnInit {
         } else {
           todo = of(data);
         }
-        
         return todo
       })
     )

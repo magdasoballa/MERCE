@@ -26,7 +26,9 @@ export class CommentItemInfoComponent  implements OnInit{
 
   private getComment() {
     return this.activatedRoute.params.pipe(
-      map((data: { id: number }) => +data.id),
+      map((data: { id: number }) =>{
+        // this.commId = +data.id;
+      return +data.id}),
       mergeMap((id) => this.store.select(selectComment(id))),
       mergeMap((data) => {
         let comment: Observable<Comment>;

@@ -45,9 +45,6 @@ export class PostDetailComponent {
       )
 
 
-
-
-
     this.comments$ =
       this.activatedRoute.params.pipe(
         map((data: { id: number }) => +data.id),
@@ -56,7 +53,6 @@ export class PostDetailComponent {
           return this.store.select(selectComments(id))
         }),
         mergeMap((data) => {
-          // console.log('data', data)
 
           if (data.length === 0) {
             return this.service.getComments(this.postId)
