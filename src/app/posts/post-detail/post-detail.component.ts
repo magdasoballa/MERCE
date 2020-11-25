@@ -38,8 +38,8 @@ export class PostDetailComponent {
           if (!data) {
             return this.service.getDetails(this.postId)
 
-          } 
-          
+          }
+
           return of(data)
         })
       )
@@ -61,7 +61,7 @@ export class PostDetailComponent {
           if (data.length === 0) {
             return this.service.getComments(this.postId)
           }
-          return [data];
+          return of(data);
         }),
       )
 
