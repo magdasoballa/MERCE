@@ -14,8 +14,9 @@ const routes: Routes = [
   },
   {
     path: ':id', 
-    component: PostDetailComponent, resolve: {detail: DetailResolver , comments: CommentResolver}
-  }
+    // component: PostDetailComponent, resolve: {detail: DetailResolver , comments: CommentResolver},
+    component: PostDetailComponent}
+  
 ];
 
 @NgModule({

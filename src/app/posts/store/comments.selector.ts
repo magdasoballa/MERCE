@@ -12,6 +12,5 @@ export const selectComments = (postId:number) => createSelector(
   selectAllComments,
   (comments: Comment[]) => {
     return comments.filter(comm => comm.postId === postId)
-
   }
 )

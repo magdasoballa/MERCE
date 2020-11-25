@@ -4,6 +4,7 @@ import { TodosComponent } from './todos.component';
 import {TodosRoutingModule} from "./todos-routing.module";
 import {TodosListComponent} from "./todos-list/todos-list.component";
 import {TodoItemComponent} from "./todo-item/todo-item.component";
+import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 
 
 
@@ -11,7 +12,8 @@ import {TodoItemComponent} from "./todo-item/todo-item.component";
   declarations: [
     TodosComponent,
     TodosListComponent,
-    TodoItemComponent
+    TodoItemComponent,
+    TodoDetailComponent
   ],
   imports: [
     CommonModule,

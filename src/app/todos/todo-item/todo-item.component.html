@@ -1,4 +1,8 @@
-<div class="todo">
-<h4>{{todo.id}}. {{ todo.title}}</h4>
-<p>{{todo.completed}}</p>
-</div>
+
+
+<div>
+    <a [routerLink]="['/todos', todo.id]">
+    <h4 style="color: black">  {{ todo.id}}. {{todo.title}}</h4>  
+    <h6 style="color: black"> {{ todo.completed }} </h6>
+    </a>
+   </div>

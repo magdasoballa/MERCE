@@ -20,9 +20,6 @@ import {todosReducer} from "./todos/store/todo.reducer";
 import {TodosEffects} from "./todos/store/todo.effect";
 import {commentsReducer} from "./comments/store/comments.reducer";
 import {CommentsEffects} from "./comments/store/comments.effect";
-import { CommentsListComponent } from './comments/comments-list/comments-list.component';
-import { CommentItemComponent } from './comments/comment-item/comment-item.component';
-import { CommentItemInfoComponent } from './comments/comment-item-info/comment-item-info.component';
 
 
 @NgModule({
