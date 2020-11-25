@@ -1,0 +1,7 @@
+<div *ngIf="detail$ | async as detail">
+ <h3>{{detail.id}}. {{detail.title}}</h3>
+  <p>{{detail.body}}</p>
+</div>
+
+<app-comment [comments]="comments$ | async "></app-comment>
+
