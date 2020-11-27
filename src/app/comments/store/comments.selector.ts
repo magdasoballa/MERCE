@@ -9,9 +9,17 @@ export interface AppState {
 export const selectAllComments = (state: AppState) => state.comments;
 
 
-export const selectComment= (id:number) => createSelector(
+export const selectComment = (id:number) => createSelector(
   selectAllComments,
   (comments: Comment[]) => {
-    return comments.find(comm => comm.id === id)
+    return comments.find(comm => comm.id === +id)
+  }
+)
+
+
+export const selectCommentsToPost = (postId:number) => createSelector(
+  selectAllComments,
+  (comments: Comment[]) => {
+    return comments.filter(comm => comm.postId === +postId)
   }
 )

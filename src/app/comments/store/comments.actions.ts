@@ -11,3 +11,22 @@ export const getCommentsError = createAction(
   '[Comments Component] Get Comments Error',
   props<{ error: any }>()
 );
+
+
+
+
+
+export const getComment = createAction('[Comment Component] Get comment from cos', props<{id: number} >());
+
+export const getCommentSuccess = createAction(
+  '[Comment Component] Get Comments Success',
+  props<{ comment: Comment }>()
+);
+
+export const getCommentError = createAction(
+  '[Comment Component] Get Comment Error',
+  props<{ error: any }>()
+);
+
+export const getCommentsToPost = createAction('[Comments Component] Get comments to post from cos', props<{id:number}>()
+);

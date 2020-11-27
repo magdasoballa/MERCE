@@ -2,7 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import {CommentsComponent} from "./comments.component";
 import {CommentItemInfoComponent} from "./comment-item-info/comment-item-info.component";
-import {CommentResolver} from "../posts/shared/comment.resolver";
+import {CommentResolver} from "./shared/comment.resolver";
 
 
 

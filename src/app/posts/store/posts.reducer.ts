@@ -1,12 +1,15 @@
 import { createReducer, on } from '@ngrx/store';
 import { Post } from '../shared/model';
-import { getPostsSuccess } from './posts.actions';
+import {Comment} from '../../comments/shared/comments.model'
+import { getPostsSuccess, getPostSuccess } from './posts.actions';
 
-export const initialState = [{id: 1, userId: 1,title: 'titiel', body: 'body'}];
+export const initialState = [];
 
-const _postsReducer = createReducer<Post[]>(
+const _postsReducer = createReducer<Post[]> (
   initialState,
   on(getPostsSuccess, (state, {posts}) => [...posts]),
+  on(getPostSuccess, (state, { post }) => [post]),
+
 );
 
 export function postsReducer(state, action) {

@@ -21,5 +21,10 @@ export class CommentsService {
     return this.http.get<Comment>(action);
   }
 
+  getCommentsToPost(postId: number) {
+    const comments=`https://jsonplaceholder.typicode.com/comments?postId=${postId}`
+
+    return this.http.get<Comment[]>(comments)
+  }
 
 }

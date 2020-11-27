@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
-import { map, mergeMap, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Todo } from '../shared/todos.model';
-import { TodosService } from '../shared/todos.service';
-import { selectTodo } from '../store/todos.selector';
+import { TodosFacade } from '../store/todos.facade';
 
 @Component({
   selector: 'app-todo-detail',
@@ -13,33 +9,18 @@ import { selectTodo } from '../store/todos.selector';
 })
 export class TodoDetailComponent implements OnInit {
   todo$: Observable<Todo>;
-  todoId: number;
 
-
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private store: Store,
-    private service: TodosService) {
-  }
+  constructor(private todosFacade: TodosFacade) { }
 
   ngOnInit() {
-    this.todo$ = this.getTodo();
+    this.todo$ = this.todosFacade.getOneTodo();
   }
 
-  private getTodo() {
-    return this.activatedRoute.params.pipe(
-      map((data: { id: number }) => +data.id),
-      mergeMap((id) => this.store.select(selectTodo(id))),
-      mergeMap((data) => {
-        let todo: Observable<Todo>;
 
-        if (!data) {
-          todo = this.service.fetchTodo(this.todoId)
-        } else {
-          todo = of(data);
-        }
-        return todo
-      })
-    )
-  }
+
+
 }
+
+
+
+

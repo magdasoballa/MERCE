@@ -10,11 +10,10 @@ import { Comment } from './comments.model';
 @Injectable({
   providedIn: 'root',
 })
-export class CommentResolverService implements Resolve<Comment>{
+export class CommentResolver implements Resolve<Comment>{
   constructor(private commentsService: CommentsService) { }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Comment| Observable<Comment> | Promise<Comment> {
     const {id} = route.params;
-
     return this.commentsService.fetchComment(id)
   }
 }

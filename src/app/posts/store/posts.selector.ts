@@ -13,7 +13,7 @@ export const selectPosts = (state: AppState) => state.posts;
 export const selectOnePost = (id:number) => createSelector(
   selectPosts,
   (posts: Post[]) => {
-    return posts.find(postEl => postEl.id === id)
+    return posts.find(postEl => postEl.id === +id)
 
   }
 )

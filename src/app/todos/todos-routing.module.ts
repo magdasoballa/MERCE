@@ -10,10 +10,12 @@ import { TodoResolverService } from './shared/todo-item.resolver';
 const routes: Routes = [
   {
     path: '',
-    component: TodosComponent, resolve: {todos: TodosResolver}
+    component: TodosComponent, 
+    // resolve: {todos: TodosResolver}
   },
   {
-    path: ':id', component: TodoDetailComponent, resolve: {todo: TodoResolverService}
+    path: ':id', component: TodoDetailComponent, 
+    
   }
 ];
 

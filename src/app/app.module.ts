@@ -20,6 +20,8 @@ import {todosReducer} from "./todos/store/todo.reducer";
 import {TodosEffects} from "./todos/store/todo.effect";
 import {commentsReducer} from "./comments/store/comments.reducer";
 import {CommentsEffects} from "./comments/store/comments.effect";
+import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
+import { CustomSerializer } from './core/custom-route-serializer';
 
 
 @NgModule({
@@ -36,7 +38,8 @@ import {CommentsEffects} from "./comments/store/comments.effect";
     StoreModule.forRoot({
       posts: postsReducer,
       todos: todosReducer,
-      comments: commentsReducer
+      comments: commentsReducer,
+      router: routerReducer,
 
      }),
     StoreDevtoolsModule.instrument({
@@ -44,7 +47,11 @@ import {CommentsEffects} from "./comments/store/comments.effect";
       logOnly: environment.production,
     }),
     EffectsModule.forRoot([PostsEffects, TodosEffects, CommentsEffects]),
+    StoreRouterConnectingModule.forRoot({
+      serializer: CustomSerializer
+    }),
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

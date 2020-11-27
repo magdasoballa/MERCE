@@ -16,14 +16,11 @@ export class PostsService {
     const posts = 'https://jsonplaceholder.typicode.com/posts/';
     return this.http.get<Post[]>(posts);
   }
+
   getDetails(id: number) {
     const link=`https://jsonplaceholder.typicode.com/posts/${id}`;
     return this.http.get<Post>(link)
   }
 
-  getComments(postId: number) {
-    const comments=`https://jsonplaceholder.typicode.com/comments?postId=${postId}`
-
-    return this.http.get<Comment[]>(comments)
-  }
+  
 }

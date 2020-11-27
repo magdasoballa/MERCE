@@ -1,12 +1,14 @@
 import { createReducer, on } from '@ngrx/store';
 import { Todo } from '../shared/todos.model';
-import { getTodosSuccess } from './todos.actions';
+import { getTodosSuccess, getTodoSuccess } from './todos.actions';
 
-export const initialState = [{id: 1, completed: true, userId: 2, title: 'dupa'}];
+export const initialState = [];
 
 const _todosReducer = createReducer<Todo[]>(
   initialState,
-  on(getTodosSuccess, (state, {todos}) => [...todos])
+  on(getTodosSuccess, (state, { todos }) => [...todos]),
+  on(getTodoSuccess, (state, { todo }) => [todo])
+
 );
 
 export function todosReducer(state, action) {
