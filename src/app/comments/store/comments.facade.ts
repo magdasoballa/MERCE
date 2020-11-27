@@ -44,22 +44,47 @@ export class CommentsFacade {
   }
 
 
-  getCommentsByPostId(postId) {
-    return this.store.pipe(
-      select(selectCommentsToPost(postId)),
-      tap(data => {
-        
-        if (!data.length ) {          
-          this.store.dispatch(getCommentsToPost({ id: postId }))
-        }
+    getCommentsByPostId(postId) {
+      return this.store.pipe(
+        select(selectCommentsToPost(postId)),
+        tap(data => {
 
-        console.log(data)
-      }),
-      filter(data => !!data.length),
-      take(1)
-    )
+          if (!data.length ) {          
+            this.store.dispatch(getCommentsToPost({ id: postId }))
+          }
+
+          console.log(data)
+        }),
+        filter(data => !!data.length),
+        take(1)
+      )
+    }
   }
-}
+
+
+  // getCommentsByPostId() {
+  //   return this.store.pipe(
+  //     select(getCurrentId),
+
+  //     mergeMap(id => {
+  //       this.postId = +id;
+  //       console.log(this.postId, 'id test')
+
+  //       return this.store.pipe(
+  //         select(selectCommentsToPost(this.postId))
+  //       )
+  //     }),
+  //     tap((data) => console.log(data, 'POST!')
+  //     ),
+  //     tap((post) => {
+  //       if (!post) {
+  //         this.store.dispatch(getCommentsToPost({ id: this.postId }))
+  //       }
+  //     }),
+  //     filter(data => !!data),
+  //     take(1)
+  //   )
+  // }
 
 
 
